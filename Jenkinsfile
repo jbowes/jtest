@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        sh 'make'
+        sh 'echo "hi"'
       }
     }
     stage('Approve') {
