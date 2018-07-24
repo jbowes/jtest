@@ -13,12 +13,9 @@ pipeline {
             input(message: 'deploy?', ok: 'yes')
           }
         }
-        stage('') {
+        stage('wait') {
           steps {
-            waitUntil() {
-              timeout(time: 30)
-            }
-
+            sleep 30
           }
         }
       }
