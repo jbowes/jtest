@@ -7,8 +7,25 @@ pipeline {
       }
     }
     stage('Approve') {
+      parallel {
+        stage('Approve') {
+          steps {
+            input(message: 'deploy?', ok: 'yes')
+          }
+        }
+        stage('') {
+          steps {
+            waitUntil() {
+              timeout(time: 30)
+            }
+
+          }
+        }
+      }
+    }
+    stage('Deploy') {
       steps {
-        input(message: 'deploy?', ok: 'yes')
+        echo 'Great jorb'
       }
     }
   }
